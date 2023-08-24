@@ -1,0 +1,24 @@
+{% extends 'flatpages/base.html' %}
+{% load custom_filters %}
+
+{% block title %}
+New
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <td>Заголовок</td>
+                <td>Дата публикации</td>
+                <td>Содержание</td>
+            </tr>
+        </thead>
+        <tr>
+            <td>{{ new.title|censor }}</td>
+            <td>{{ new.data_create|date:'d M Y' }}</td>
+            <td>{{ new.text|censor }}</td>
+        </tr>
+    </table>
+{% endblock content %}
